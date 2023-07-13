@@ -37,7 +37,7 @@ EmployeeRouter.delete("/employeesdelete/:id",async (req,res)=>{
 EmployeeRouter.get("/employees",async(req,res)=>{
     const {Department}=req.query
     try {
-        const filterDep=await employeeModel.find({Department})
+        const filterDep=await employeeModel.find()
         return res.status(200).send(filterDep)
     } catch (error) {
         return res.status(401).send({msg:error.message})
